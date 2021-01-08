@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { IStarship } from 'src/app/models/starship.interface';
 import { StarshipsService } from 'src/app/services/starships.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { StarshipsService } from 'src/app/services/starships.service';
 export class StarshipComponent implements OnInit {
 
   private starshipId: string;
-  public starship: any;
+  public starship: IStarship;
   public loading: boolean = true;
 
   constructor(private route: ActivatedRoute,
@@ -22,10 +23,16 @@ export class StarshipComponent implements OnInit {
   }
 
   getStarship() {
-    this.starshipsService.getStarships(this.starshipId).subscribe(starship => {
-      this.starship = starship;
+    const starshipFound = this.starshipsService.searchLocalStarship(this.starshipId);
+    if(!starshipFound) {
+      this.starshipsService.getStarships(this.starshipId).subscribe((starship: IStarship) => {
+        this.starship = starship;
+        this.loading = false;
+      });
+    } else {
+      this.starship = starshipFound;
       this.loading = false;
-    });
+    }
   }
 
 }

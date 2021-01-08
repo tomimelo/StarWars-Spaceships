@@ -9,7 +9,7 @@
 </ng-template>
 
 <div class="container">
-    <div class="single-starship-container animate__animated animate__fadeIn animate__fast" *ngIf="!loading else loader">
+    <div class="full-card animate__animated animate__fadeIn animate__fast" *ngIf="!loading else loader">
         <div class="card starship-card mb-3">
             <div class="row no-gutters">
               <div class="col-12 col-sm-4">
@@ -26,6 +26,7 @@
                   <p class="card-text"><span><i class="fas fa-fw fa-user-cog"></i> Crew needed: </span>{{starship.crew}} persons</p>
                   <p class="card-text"><span><i class="fas fa-fw fa-users"></i> Passengers: </span>{{starship.passengers}} persons</p>
                   <p class="card-text"><span><i class="fas fa-fw fa-dollar-sign"></i> Cost: </span>{{starship.cost_in_credits !== 'unknown' ? starship.cost_in_credits+" Credits" : "Unknown"}}</p>
+                  <p class="card-text"><small class="text-muted">Created: {{starship.created | date}}</small></p>
                   <a routerLink="/starships" class="btn btn-danger">Go back</a>
                 </div>
               </div>

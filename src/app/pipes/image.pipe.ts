@@ -18,6 +18,7 @@ export class ImagePipe implements PipeTransform {
           break;
       }
     }
+    return img;
   }
 
 }

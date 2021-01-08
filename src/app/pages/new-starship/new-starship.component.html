@@ -1,0 +1,133 @@
+<div class="container">
+    <div class="full-card py-3">
+        <div class="card starship-card mb-3">
+            <div class="row no-gutters">
+              <div class="col-md-4">
+                <img [src]="imageUrl" (error)="setDefaultImage()" class="card-img" alt="Star Wars Starship">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">Create new Starship</h5>
+                  <form [formGroup]="newStarshipForm" (ngSubmit)="createStarship()">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <label for="name">Name</label>
+                          <input type="text"
+                                 class="form-control"
+                                 placeholder="Starship name"
+                                 name="name"
+                                 id="name"
+                                 formControlName="name"
+                                 [class.is-invalid]="newStarshipForm.get('name').invalid && newStarshipForm.get('name').touched">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="img">Image URL</label>
+                          <input type="text"
+                                 class="form-control"
+                                 placeholder="http://example.com/image.jpg"
+                                 name="img"
+                                 id="img"
+                                 formControlName="img"
+                                 [class.is-invalid]="newStarshipForm.get('img').invalid && newStarshipForm.get('img').touched"
+                                 (change)="updateImageUrl()">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <label for="model">Model</label>
+                          <input type="text"
+                                 class="form-control"
+                                 placeholder="Starship model"
+                                 name="model"
+                                 id="model"
+                                 formControlName="model"
+                                 [class.is-invalid]="newStarshipForm.get('model').invalid && newStarshipForm.get('model').touched">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="starship_class">Class</label>
+                          <input type="text"
+                                 class="form-control"
+                                 placeholder="Starship Class"
+                                 name="starship_class"
+                                 id="starship_class"
+                                 formControlName="starship_class"
+                                 [class.is-invalid]="newStarshipForm.get('starship_class').invalid && newStarshipForm.get('starship_class').touched">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <label for="manufacturer">Manufacturer</label>
+                          <input type="text"
+                                 class="form-control"
+                                 placeholder="Starship Manufacturer"
+                                 name="manufacturer"
+                                 id="manufacturer"
+                                 formControlName="manufacturer"
+                                 [class.is-invalid]="newStarshipForm.get('manufacturer').invalid && newStarshipForm.get('manufacturer').touched">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="length">Length</label>
+                          <input type="number"
+                                 class="form-control"
+                                 placeholder="Length in meters"
+                                 name="length"
+                                 id="length"
+                                 formControlName="length"
+                                 [class.is-invalid]="newStarshipForm.get('length').invalid && newStarshipForm.get('length').touched">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <label for="cargo_capacity">Cargo capacity</label>
+                          <input type="number"
+                                 class="form-control"
+                                 placeholder="Cargo capacity in kgs"
+                                 name="cargo_capacity"
+                                 id="cargo_capacity"
+                                 formControlName="cargo_capacity"
+                                 [class.is-invalid]="newStarshipForm.get('cargo_capacity').invalid && newStarshipForm.get('cargo_capacity').touched">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="crew">Crew</label>
+                          <input type="number"
+                                 class="form-control"
+                                 placeholder="Crew (N° of persons)"
+                                 name="crew"
+                                 id="crew"
+                                 formControlName="crew"
+                                 [class.is-invalid]="newStarshipForm.get('crew').invalid && newStarshipForm.get('crew').touched">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <label for="passengers">Passengers</label>
+                          <input type="number"
+                                 class="form-control"
+                                 placeholder="Passengers (N° of persons)"
+                                 name="passengers"
+                                 id="passengers"
+                                 formControlName="passengers"
+                                 [class.is-invalid]="newStarshipForm.get('passengers').invalid && newStarshipForm.get('passengers').touched">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="cost_in_credits">Cost</label>
+                          <input type="number"
+                                 class="form-control"
+                                 placeholder="Cost in credits"
+                                 name="cost_in_credits"
+                                 id="cost_in_credits"
+                                 formControlName="cost_in_credits"
+                                 [class.is-invalid]="newStarshipForm.get('cost_in_credits').invalid && newStarshipForm.get('cost_in_credits').touched">
+                        </div>
+                    </div>
+                    <div class="action-buttons text-right">
+                        <a routerLink="/starships" class="btn btn-danger mr-3">Cancel</a>
+                        <button type="submit" class="btn btn-primary">Create</button>
+                    </div>                    
+                  </form>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>

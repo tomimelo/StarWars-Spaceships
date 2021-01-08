@@ -16,13 +16,17 @@ body {
     cursor: pointer;
 }
 
-.profile-container {
-    height: calc(100vh - 56px);
+.full-card {
+    min-height: calc(100vh - 56px);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+
+/****************
+    Profile
+****************/
 
 .profile-container .card {
     width: 15em;
@@ -31,6 +35,10 @@ body {
 .avatar img {
     width: 8em;
 }
+
+/****************
+    Starships
+****************/
 
 .starships-container {
     margin: 1em 0;
@@ -45,12 +53,12 @@ body {
     margin: 0;
 }
 
-.single-starship-container, .single-starship-container .row, .single-starship-container .card{
-    height: 100%;
-}
+/***************************
+    Single Starship Page
+****************************/
 
-.single-starship-container {
-    height: calc(100vh - 56px);
-    padding-top: 2em;
-    padding-bottom: 2em;
-}
+
+
+/************************
+    Create Starship
+*************************/

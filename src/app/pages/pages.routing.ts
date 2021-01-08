@@ -7,6 +7,7 @@ import { StarshipComponent } from './starship/starship.component';
 
 import { AuthGuard } from '../guards/auth.guard';
 import { ProfileComponent } from './profile/profile.component';
+import { NewStarshipComponent } from './new-starship/new-starship.component';
 
 const routes: Routes = [
     {path: '', pathMatch: 'full', redirectTo: '/starships'},
@@ -17,6 +18,7 @@ const routes: Routes = [
         children: [
             {path: 'profile', component: ProfileComponent},
             {path: 'starships', component: StarshipsComponent},
+            {path: 'starships/new', component: NewStarshipComponent},
             {path: 'starships/:id', component: StarshipComponent},
         ]
     }

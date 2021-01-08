@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IStarship } from 'src/app/models/starship.interface';
 
 import { StarshipsService } from 'src/app/services/starships.service';
 
@@ -9,7 +10,7 @@ import { StarshipsService } from 'src/app/services/starships.service';
 })
 export class StarshipsComponent implements OnInit {
 
-  public starships: any[] = [];
+  public starships: IStarship[] = [];
   public nextPage: string = null;
   public previousPage: string = null;
   public loading: boolean = true;
@@ -18,7 +19,12 @@ export class StarshipsComponent implements OnInit {
   constructor(private starshipsService: StarshipsService) { }
 
   ngOnInit(): void {
+    this.getLocalStarships();
     this.getStarships();
+  }
+
+  getLocalStarships() {
+    this.starships = this.starshipsService.getLocalStarShips();
   }
 
   getStarships(page?: string) {

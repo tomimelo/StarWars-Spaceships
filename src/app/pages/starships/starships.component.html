@@ -9,6 +9,7 @@
 </ng-template>
 
 <div class="container-fluid">
+  <a class="btn btn-primary mt-3" routerLink="/starships/new"><i class="fas fa-plus-circle"></i> New Starship</a>
   <div class="starships-container" *ngIf="!loading else loader">
     <div class="card-columns">
         <div class="card starship-card mb-3 animate__animated animate__fadeIn animate__fast" *ngFor="let starship of starships">
@@ -22,6 +23,7 @@
                     <p class="card-text">Model: {{starship.model}}</p>
                     <p class="card-text">Class: {{starship.starship_class}}</p>
                     <a [routerLink]="getUrl(starship.url)" class="btn btn-primary">View details</a>
+                    <p class="card-text"><small class="text-muted">Created: {{starship.created | date}}</small></p>
                 </div>
                 <div class="card-footer">
                     <p class="m-0">Cost: <span>{{starship.cost_in_credits !== 'unknown' ? starship.cost_in_credits+" Credits" : "Unknown"}}</span></p>
