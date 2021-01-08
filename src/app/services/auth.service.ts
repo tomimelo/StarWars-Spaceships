@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { IUser } from '../models/user.interface';
 
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -12,18 +13,19 @@ export class AuthService {
   private registeredUsers: IUser[] = [];
   public userLogged: IUser = null;
 
-  constructor() {
+  constructor(private router: Router) {
     this.checkUserLogged();
     this.registeredUsers = this.getRegisteredUsers();
   }
 
   login(user) {
     const userFound = this.registeredUsers.find(u => u.username === user.username && u.password === user.password);
-    if (userFound) {
-      this.saveUser(userFound);
-      return Swal.fire("Ok!", "User logged!", "success");
+    if (!userFound) {
+      return Swal.fire("Error!", "Username or password is incorrect. Try again", "error");
     }
-    return Swal.fire("Error!", "Username or password is incorrect. Try again", "error");
+    this.saveUser(userFound);
+    Swal.fire("Ok!", "User logged!", "success");
+    this.router.navigateByUrl("/");
   }
 
   register(user) {
@@ -34,6 +36,7 @@ export class AuthService {
     this.addUser(user);
     this.saveUser(user);
     Swal.fire("Ok!", "User registered", "success");
+    this.router.navigateByUrl("/");
   }
 
   getRegisteredUsers(): IUser[] {

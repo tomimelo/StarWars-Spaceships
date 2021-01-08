@@ -2,18 +2,18 @@ import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 
 import { PagesComponent } from './pages.component';
-import { SpaceshipsComponent } from './spaceships/spaceships.component';
+import { StarshipsComponent } from './starships/starships.component';
 
 import { AuthGuard } from '../guards/auth.guard';
 
 const routes: Routes = [
-    {path: '', pathMatch: 'full', redirectTo: '/spaceships'},
+    {path: '', pathMatch: 'full', redirectTo: '/starships'},
     { 
         path: '', 
         component: PagesComponent,
         canActivate: [AuthGuard],
         children: [
-            {path: 'spaceships', component: SpaceshipsComponent}
+            {path: 'starships', component: StarshipsComponent}
         ]
     }
 ];

@@ -1,0 +1,25 @@
+<div class="container-fluid spaceships-container">
+    <div class="card-columns">
+        <div class="card starship-card mb-3" *ngFor="let starship of starships">
+            <div class="row no-gutters">
+              <div class="col-md-4">
+                <img src="assets/imgs/no-starship.jpg" class="card-img" alt="Star Wars Starship">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{starship.name}}</h5>
+                    <p class="card-text">Model: {{starship.model}}</p>
+                    <p class="card-text">Class: {{starship.starship_class}}</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+                <div class="card-footer">
+                    <p class="m-0">Cost: <span>{{starship.cost_in_credits !== 'unknown' ? starship.cost_in_credits+" Credits" : "Unknown"}}</span></p>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="nextPage" class="text-center">
+    <button class="btn btn-success" type="button" (click)="loadMore()">Load more...</button>
+</div>

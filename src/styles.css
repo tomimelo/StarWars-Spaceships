@@ -1,1 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+.spaceships-container {
+    margin: 1em 0;
+}
+
+.starship-card img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.starship-card p {
+    margin: 0;
+}
