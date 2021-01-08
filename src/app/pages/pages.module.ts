@@ -10,13 +10,15 @@ import { StarshipsComponent } from './starships/starships.component';
 import { StarshipComponent } from './starship/starship.component';
 
 import { ImagePipe } from '../pipes/image.pipe';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
     PagesComponent,
     StarshipsComponent,
     StarshipComponent,
-    ImagePipe
+    ImagePipe,
+    ProfileComponent
   ],
   imports: [
     CommonModule,

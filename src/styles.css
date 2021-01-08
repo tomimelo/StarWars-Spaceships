@@ -16,6 +16,22 @@ body {
     cursor: pointer;
 }
 
+.profile-container {
+    height: calc(100vh - 56px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-container .card {
+    width: 15em;
+}
+
+.avatar img {
+    width: 8em;
+}
+
 .starships-container {
     margin: 1em 0;
 }

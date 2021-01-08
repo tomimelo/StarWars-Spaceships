@@ -24,7 +24,7 @@ export class AuthService {
       return Swal.fire("Error!", "Username or password is incorrect. Try again", "error");
     }
     this.saveUser(userFound);
-    Swal.fire("Ok!", "User logged!", "success");
+    Swal.fire("Success!", "User logged!", "success");
     this.router.navigateByUrl("/");
   }
 
@@ -35,7 +35,7 @@ export class AuthService {
     }
     this.addUser(user);
     this.saveUser(user);
-    Swal.fire("Ok!", "User registered", "success");
+    Swal.fire("Success!", "User registered", "success");
     this.router.navigateByUrl("/");
   }
 
