@@ -18,6 +18,7 @@ export class StarshipComponent implements OnInit {
               private starshipsService: StarshipsService) { }
 
   ngOnInit(): void {
+    document.title = "SWAPI Starships - Starship Details";
     this.starshipId = this.route.snapshot.paramMap.get("id");
     this.getStarship();
   }

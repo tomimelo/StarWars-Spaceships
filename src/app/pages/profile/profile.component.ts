@@ -15,6 +15,7 @@ export class ProfileComponent implements OnInit {
   constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
+    document.title = "SWAPI Starships - My profile";
     this.user = this.authService.userLogged;
     this.loading = false;
   }

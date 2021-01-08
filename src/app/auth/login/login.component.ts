@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    document.title = "SWAPI Starships - Login";
   }
 
   initForm() {

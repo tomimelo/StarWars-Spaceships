@@ -22,6 +22,7 @@ export class NewStarshipComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    document.title = "SWAPI Starships - Create Starship";
     this.initForm();
   }
   

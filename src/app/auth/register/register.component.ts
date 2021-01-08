@@ -17,6 +17,7 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    document.title = "SWAPI Starships - Register";
   }
 
   initForm() {

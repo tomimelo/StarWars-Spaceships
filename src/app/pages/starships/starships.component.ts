@@ -19,6 +19,7 @@ export class StarshipsComponent implements OnInit {
   constructor(private starshipsService: StarshipsService) { }
 
   ngOnInit(): void {
+    document.title = "SWAPI Starships - List";
     this.getLocalStarships();
     this.getStarships();
   }
