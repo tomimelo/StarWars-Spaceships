@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" routerLink="/">
-    <img src="assets/imgs/logo.png" height="30" width="30" alt="Star Wars Starships Logo">
+    <img src="assets/imgs/logo.png" height="25" width="25" alt="Star Wars Starships Logo">
     StarShips
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,13 +9,16 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active" routerLink="/starships">List</a>
+        <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" routerLink="/starships">List</a>
       </li>
     </ul>
     <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-            <a class="nav-link" routerLink="/login"><i class="fas fa-user-circle"></i> Profile</a>
-        </li>
+      <li class="nav-item">
+          <a class="nav-link" routerLink="/login"><i class="fas fa-user-circle"></i> Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link pointer" (click)="logout()">Logout</a>
+      </li>
     </ul>
   </div>
 </nav>

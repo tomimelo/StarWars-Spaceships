@@ -12,6 +12,8 @@ export class StarshipsComponent implements OnInit {
   public starships: any[] = [];
   public nextPage: string = null;
   public previousPage: string = null;
+  public loading: boolean = true;
+  public loadingMore: boolean = false;
 
   constructor(private starshipsService: StarshipsService) { }
 
@@ -19,17 +21,25 @@ export class StarshipsComponent implements OnInit {
     this.getStarships();
   }
 
-  getStarships(url?: string) {
-    this.starshipsService.getStarships(url).subscribe((resp: any) => {
+  getStarships(page?: string) {
+    this.starshipsService.getStarships(page).subscribe((resp: any) => {
       this.starships = [...this.starships, ...resp.results];
       this.nextPage = resp.next;
       this.previousPage = resp.previous;
-      console.log(resp);
+      this.loading = false;
+      this.loadingMore = false;
     });
   }
 
+  getUrl(url: string) {
+    const urlSplitted =  url.split("/");
+    return urlSplitted[urlSplitted.length-2];
+  }
+
   loadMore() {
-    this.getStarships(this.nextPage);    
+    this.loadingMore = true;
+    const page = this.nextPage.substring(this.nextPage.lastIndexOf("/")+1);
+    this.getStarships(page);    
   }
 
 }

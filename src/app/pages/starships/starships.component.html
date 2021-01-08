@@ -1,16 +1,27 @@
-<div class="container-fluid spaceships-container">
+<ng-template #loader>
+  <div class="col-12">
+      <div class="alert alert-info text-center">
+          <h4 class="alert-heading">Loading...</h4>
+          <i class="fas fa-spin fa-2x fa-sync-alt"></i>
+          <p class="mb-0">Please Wait</p>
+      </div>
+  </div>
+</ng-template>
+
+<div class="container-fluid">
+  <div class="starships-container" *ngIf="!loading else loader">
     <div class="card-columns">
-        <div class="card starship-card mb-3" *ngFor="let starship of starships">
+        <div class="card starship-card mb-3 animate__animated animate__fadeIn animate__fast" *ngFor="let starship of starships">
             <div class="row no-gutters">
-              <div class="col-md-4">
-                <img src="assets/imgs/no-starship.jpg" class="card-img" alt="Star Wars Starship">
+              <div class="col-12 col-lg-4">
+                <img [src]="starship.img | image:'starship'" class="card-img" alt="Star Wars Starship">
               </div>
-              <div class="col-md-8">
+              <div class="col-12 col-lg-8">
                 <div class="card-body">
                     <h5 class="card-title">{{starship.name}}</h5>
                     <p class="card-text">Model: {{starship.model}}</p>
                     <p class="card-text">Class: {{starship.starship_class}}</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <a [routerLink]="getUrl(starship.url)" class="btn btn-primary">View details</a>
                 </div>
                 <div class="card-footer">
                     <p class="m-0">Cost: <span>{{starship.cost_in_credits !== 'unknown' ? starship.cost_in_credits+" Credits" : "Unknown"}}</span></p>
@@ -19,7 +30,11 @@
             </div>
         </div>
     </div>
-</div>
-<div *ngIf="nextPage" class="text-center">
-    <button class="btn btn-success" type="button" (click)="loadMore()">Load more...</button>
+  </div>
+  <div *ngIf="nextPage" class="text-center mb-3">
+      <button *ngIf="!loadingMore else moreLoader" class="btn btn-success" type="button" (click)="loadMore()">Load more...</button>
+      <ng-template #moreLoader>
+        <button class="btn btn-success" type="button" disabled><i class="fas fa-spin fa-circle-notch"></i> Loading... </button>
+      </ng-template>
+  </div>
 </div>

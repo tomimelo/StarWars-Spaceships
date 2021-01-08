@@ -7,11 +7,16 @@ import { SharedModule } from '../shared/shared.module';
 
 import { PagesComponent } from './pages.component';
 import { StarshipsComponent } from './starships/starships.component';
+import { StarshipComponent } from './starship/starship.component';
+
+import { ImagePipe } from '../pipes/image.pipe';
 
 @NgModule({
   declarations: [
     PagesComponent,
-    StarshipsComponent
+    StarshipsComponent,
+    StarshipComponent,
+    ImagePipe
   ],
   imports: [
     CommonModule,

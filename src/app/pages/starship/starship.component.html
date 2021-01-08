@@ -1,0 +1,35 @@
+<ng-template #loader>
+    <div class="col-12">
+        <div class="alert alert-info text-center">
+            <h4 class="alert-heading">Loading...</h4>
+            <i class="fas fa-spin fa-2x fa-sync-alt"></i>
+            <p class="mb-0">Please Wait</p>
+        </div>
+    </div>
+</ng-template>
+
+<div class="container">
+    <div class="single-starship-container animate__animated animate__fadeIn animate__fast" *ngIf="!loading else loader">
+        <div class="card starship-card mb-3">
+            <div class="row no-gutters">
+              <div class="col-12 col-sm-4">
+                <img [src]="starship.img | image:'starship'" class="card-img" alt="Star Wars Starship">
+              </div>
+              <div class="col-12 col-sm-8">
+                <div class="card-body">
+                  <h5 class="card-title">{{starship.name}}</h5>
+                  <p class="card-text"><span><i class="fas fa-fw fa-dice-d20"></i> Model: </span>{{starship.model}}</p>
+                  <p class="card-text"><span><i class="fab fa-fw fa-hive"></i> Starship Class: </span> {{starship.starship_class}}</p>
+                  <p class="card-text"><span><i class="fas fa-fw fa-industry"></i> Manufacturer: </span>{{starship.manufacturer}}</p>
+                  <p class="card-text"><span><i class="fas fa-fw fa-arrows-alt-h"></i> Length: </span>{{starship.length}} meters</p>
+                  <p class="card-text"><span><i class="fas fa-fw fa-weight-hanging"></i> Cargo Capacity: </span>{{starship.cargo_capacity}} kgs</p>
+                  <p class="card-text"><span><i class="fas fa-fw fa-user-cog"></i> Crew needed: </span>{{starship.crew}} persons</p>
+                  <p class="card-text"><span><i class="fas fa-fw fa-users"></i> Passengers: </span>{{starship.passengers}} persons</p>
+                  <p class="card-text"><span><i class="fas fa-fw fa-dollar-sign"></i> Cost: </span>{{starship.cost_in_credits !== 'unknown' ? starship.cost_in_credits+" Credits" : "Unknown"}}</p>
+                  <a routerLink="/starships" class="btn btn-danger">Go back</a>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>

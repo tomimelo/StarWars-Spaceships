@@ -1,4 +1,22 @@
-.spaceships-container {
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    --bg-white: #F4F6F9;
+}
+
+body {
+    background: var(--bg-white);
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.starships-container {
     margin: 1em 0;
 }
 
@@ -9,4 +27,14 @@
 
 .starship-card p {
     margin: 0;
+}
+
+.single-starship-container, .single-starship-container .row, .single-starship-container .card{
+    height: 100%;
+}
+
+.single-starship-container {
+    height: calc(100vh - 56px);
+    padding-top: 2em;
+    padding-bottom: 2em;
 }
