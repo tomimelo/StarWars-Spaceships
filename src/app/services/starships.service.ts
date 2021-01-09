@@ -13,7 +13,7 @@ export class StarshipsService {
   constructor(private http: HttpClient) { }
 
   getStarships(param: string = "") {
-    return this.http.get(`${this.base_url}/starships/${param}`);
+    return this.http.get(`${this.base_url}/starships/${param ? param+'/' : ""}`);
   }
 
   createStarship(starship: IStarship) {

@@ -1,14 +1,13 @@
 <ng-template #loader>
-  <div class="loader my-3 d-flex justify-content-center align-items-center">
-    <div class="col-4">
-        <div class="alert alert-dark text-center">
-            <h4 class="alert-heading">Loading...</h4>
-            <i class="fas fa-spin fa-2x fa-sync-alt"></i>
-            <p class="mb-0">Please Wait</p>
-        </div>
+  <div class="loader mx-auto mt-3">
+    <div class="alert alert-dark text-center">
+        <h4 class="alert-heading">Loading...</h4>
+        <i class="fas fa-spin fa-2x fa-sync-alt"></i>
+        <p class="mb-0">Please Wait</p>
     </div>
   </div>
 </ng-template>
+
 <div class="color-overlay"></div>
 <div class="container-fluid starships-container">
   <div *ngIf="!loading else loader">
