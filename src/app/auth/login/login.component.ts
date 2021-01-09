@@ -10,6 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class LoginComponent implements OnInit {
 
   public loginForm: FormGroup;
+  public loading: boolean = false;
 
   constructor(private fb: FormBuilder,
               private authService: AuthService) {
@@ -28,8 +29,10 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    this.loading = true;
     if(this.loginForm.invalid) return;
     this.authService.login(this.loginForm.value);
+    this.loading = false;
   }
 
 }

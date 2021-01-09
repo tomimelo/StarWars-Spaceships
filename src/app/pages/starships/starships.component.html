@@ -1,16 +1,18 @@
 <ng-template #loader>
-  <div class="col-12">
-      <div class="alert alert-info text-center">
-          <h4 class="alert-heading">Loading...</h4>
-          <i class="fas fa-spin fa-2x fa-sync-alt"></i>
-          <p class="mb-0">Please Wait</p>
-      </div>
+  <div class="loader my-3 d-flex justify-content-center align-items-center">
+    <div class="col-4">
+        <div class="alert alert-dark text-center">
+            <h4 class="alert-heading">Loading...</h4>
+            <i class="fas fa-spin fa-2x fa-sync-alt"></i>
+            <p class="mb-0">Please Wait</p>
+        </div>
+    </div>
   </div>
 </ng-template>
-
-<div class="container-fluid">
-  <a class="btn btn-primary mt-3" routerLink="/starships/new"><i class="fas fa-plus-circle"></i> New Starship</a>
-  <div class="starships-container" *ngIf="!loading else loader">
+<div class="color-overlay"></div>
+<div class="container-fluid starships-container">
+  <div *ngIf="!loading else loader">
+    <a class="btn bg-orange text-white my-3" routerLink="/starships/new"><i class="fas fa-plus-circle"></i> New Starship</a>
     <div class="card-columns">
         <div class="card starship-card mb-3 animate__animated animate__fadeIn animate__fast" *ngFor="let starship of starships">
             <div class="row no-gutters">
@@ -20,13 +22,13 @@
               <div class="col-12 col-lg-8">
                 <div class="card-body">
                     <h5 class="card-title">{{starship.name}}</h5>
-                    <p class="card-text">Model: {{starship.model}}</p>
-                    <p class="card-text">Class: {{starship.starship_class}}</p>
-                    <a [routerLink]="getUrl(starship.url)" class="btn btn-primary">View details</a>
-                    <p class="card-text"><small class="text-muted">Created: {{starship.created | date}}</small></p>
+                    <p class="card-text"><span class="strong-text"><i class="fas fa-fw fa-dice-d20"></i> Model: </span>{{starship.model}}</p>
+                    <p class="card-text"><span class="strong-text"><i class="fab fa-fw fa-hive"></i> Starship Class: </span>{{starship.starship_class}}</p>
+                    <p class="card-text"><span class="strong-text"><i class="fas fa-fw fa-dollar-sign"></i> Cost: </span>{{starship.cost_in_credits !== 'unknown' ? starship.cost_in_credits+" Credits" : "Unknown"}}</p>
+                    <a [routerLink]="getUrl(starship.url)" class="btn btn-secondary btn-sm mt-3">Details <i class="fas fa-fw fa-angle-double-right"></i></a>
                 </div>
                 <div class="card-footer">
-                    <p class="m-0">Cost: <span>{{starship.cost_in_credits !== 'unknown' ? starship.cost_in_credits+" Credits" : "Unknown"}}</span></p>
+                  <p class="card-text"><small>Created: {{starship.created | date}}</small></p>
                 </div>
               </div>
             </div>
@@ -34,9 +36,9 @@
     </div>
   </div>
   <div *ngIf="nextPage" class="text-center mb-3">
-      <button *ngIf="!loadingMore else moreLoader" class="btn btn-success" type="button" (click)="loadMore()">Load more...</button>
+      <button *ngIf="!loadingMore else moreLoader" class="btn bg-orange text-white btn-wide" type="button" (click)="loadMore()"><i class="fas fa-chevron-circle-down"></i> Load more</button>
       <ng-template #moreLoader>
-        <button class="btn btn-success" type="button" disabled><i class="fas fa-spin fa-circle-notch"></i> Loading... </button>
+        <button class="btn bg-orange text-white btn-wide" type="button" disabled><i class="fas fa-spin fa-circle-notch"></i> Loading... </button>
       </ng-template>
   </div>
 </div>

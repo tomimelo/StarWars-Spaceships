@@ -5,15 +5,33 @@
     text-decoration: none;
     box-sizing: border-box;
     font-family: "Roboto", sans-serif;
-    --bg-white: #F4F6F9;
+    --bg-grey: #303030;
+    --bg-black: #202020;
+    --bg-blue: #161625c2;
+    --bg-orange: #fd6500;
+    --bg-dark-orange: #d65600;
 }
 
 body {
-    background: var(--bg-white);
+    background: var(--bg-grey) url(assets/imgs/background-2.jpg);
+    background-size: cover;
+    position: relative;
 }
 
 .pointer {
     cursor: pointer;
+}
+
+.bg-orange {
+    background-color: var(--bg-orange);
+}
+
+.bg-orange:hover {
+    background-color: var(--bg-dark-orange);
+}
+
+.navbar {
+    background-color: var(--bg-black);
 }
 
 .full-card {
@@ -22,6 +40,57 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.card {
+    background-color: var(--bg-blue);
+    color: white;
+    z-index: 2;
+}
+
+.btn-wide {
+    width: 15em;
+}
+
+.loader {
+    position: relative;
+    z-index: 2;
+}
+
+.strong-text {
+    color: var(--bg-orange);
+    font-weight: bold;
+}
+
+.input-glass {
+    background: #ffffff1f;
+    border-color: #383838;
+    color: white;
+}
+
+/*************
+    Auth
+*************/
+
+.auth-container {
+    background: var(--bg-grey) url(assets/imgs/background-1.jpg);
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.color-overlay {
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    background: black;
+    opacity: 0.7;
+    position: absolute;
+    z-index: 1;
 }
 
 /****************
@@ -40,8 +109,22 @@ body {
     Starships
 ****************/
 
-.starships-container {
-    margin: 1em 0;
+.starships-container button.btn, .starships-container a.btn {
+    position: relative;
+    z-index: 2;
+}
+
+.starships-container .starship-card{
+    transition: all 200ms;
+}
+
+.starships-container .starship-card:hover{
+    z-index: 10;
+    transform: scale(1.05);
+}
+
+.starships-container .starship-card .card-body p{
+    font-size: 0.9em;
 }
 
 .starship-card img {
@@ -50,12 +133,19 @@ body {
 }
 
 .starship-card p {
-    margin: 0;
+    margin-bottom: 0.3em;
 }
 
 /***************************
     Single Starship Page
 ****************************/
+
+.starship-container {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    position: relative;
+    z-index: 3;
+}
 
 
 

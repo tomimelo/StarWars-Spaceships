@@ -1,60 +1,67 @@
-<div class="col-md-6">
-    <h2>Register</h2>
-    <form autocomplete="off"
-          [formGroup]="registerForm"
-          (ngSubmit)="register()">
-        <div class="form-group">
-            <label for="firstname">First name</label>
-            <input type="text"
-                   name="firstname"
-                   id="firstname"
-                   class="form-control"
-                   formControlName="firstname"
-                   [class.is-invalid]="registerForm.get('firstname').invalid && registerForm.get('firstname').touched">
-            <small *ngIf="registerForm.get('firstname').invalid && registerForm.get('firstname').touched" class="text-danger text-left">
-                First name is required
-            </small>
+<div class="auth-container">
+    <div class="color-overlay"></div>
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title">Register</h2>
+            <form autocomplete="off"
+                  [formGroup]="registerForm"
+                  (ngSubmit)="register()">
+                <div class="form-group">
+                    <label for="firstname">First name</label>
+                    <input type="text"
+                        name="firstname"
+                        id="firstname"
+                        class="form-control input-glass"
+                        formControlName="firstname"
+                        [class.is-invalid]="registerForm.get('firstname').invalid && registerForm.get('firstname').touched">
+                    <small *ngIf="registerForm.get('firstname').invalid && registerForm.get('firstname').touched" class="text-danger text-left">
+                        First name is required
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label for="lastname">Last name</label>
+                    <input type="text"
+                        name="lastname"
+                        id="lastname"
+                        class="form-control input-glass"
+                        formControlName="lastname"
+                        [class.is-invalid]="registerForm.get('lastname').invalid && registerForm.get('lastname').touched">
+                    <small *ngIf="registerForm.get('lastname').invalid && registerForm.get('lastname').touched" class="text-danger text-left">
+                        Last name is required
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text"
+                        name="username"
+                        id="username"
+                        class="form-control input-glass"
+                        formControlName="username"
+                        [class.is-invalid]="registerForm.get('username').invalid && registerForm.get('username').touched">
+                    <small *ngIf="registerForm.get('username').invalid && registerForm.get('username').touched" class="text-danger text-left">
+                        Username is required
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password"
+                        name="password"
+                        id="password"
+                        class="form-control input-glass"
+                        formControlName="password"
+                        [class.is-invalid]="registerForm.get('password').invalid && registerForm.get('password').touched">
+                    <small *ngIf="registerForm.get('password').invalid && registerForm.get('password').touched" class="text-danger text-left">
+                        Password is required
+                    </small>
+                </div>
+                <div class="form-actions">
+                    <button *ngIf="!loading else loader" type="submit" [disabled]="registerForm.invalid" class="btn text-white bg-orange">Register</button>
+                    <ng-template #loader>
+                        <button type="submit" class="btn text-white bg-orange" disabled><i class="fas fa-circle-notch"></i> Loading... </button>
+                    </ng-template>
+                    <a routerLink="/login" class="btn btn-link text-white">Cancel</a>
+                </div>
+            </form>
         </div>
-        <div class="form-group">
-            <label for="lastname">Last name</label>
-            <input type="text"
-                   name="lastname"
-                   id="lastname"
-                   class="form-control"
-                   formControlName="lastname"
-                   [class.is-invalid]="registerForm.get('lastname').invalid && registerForm.get('lastname').touched">
-            <small *ngIf="registerForm.get('lastname').invalid && registerForm.get('lastname').touched" class="text-danger text-left">
-                Last name is required
-            </small>
-        </div>
-        <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text"
-                   name="username"
-                   id="username"
-                   class="form-control"
-                   formControlName="username"
-                   [class.is-invalid]="registerForm.get('username').invalid && registerForm.get('username').touched">
-            <small *ngIf="registerForm.get('username').invalid && registerForm.get('username').touched" class="text-danger text-left">
-                Username is required
-            </small>
-        </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password"
-                   name="password"
-                   id="password"
-                   class="form-control"
-                   formControlName="password"
-                   [class.is-invalid]="registerForm.get('password').invalid && registerForm.get('password').touched">
-            <small *ngIf="registerForm.get('password').invalid && registerForm.get('password').touched" class="text-danger text-left">
-                Password is required
-            </small>
-        </div>
-        <div class="form-actions">
-            <button type="submit" [disabled]="registerForm.invalid" class="btn btn-primary">Register</button>
-            <img src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==">
-            <a routerLink="/login" class="btn btn-link">Cancel</a>
-        </div>
-    </form>
+    </div>
 </div>
